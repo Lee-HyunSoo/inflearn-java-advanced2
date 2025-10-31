@@ -29,6 +29,7 @@ public class ServerV3 {
         // 서버, 클라이언트가 둘다 연결된 상태에서 인텔리제이 버튼으로 클라이언트 연결을 직접 종료하면,
         // 클라이언트 프로세스가 종료되며 클라이언트와 서버의 TCP 연결도 종료된다.
         // 이때 서버에서 readUTF()로 메세지를 읽으려하면 EOFException 이 발생한다.
+        // (JDK에 따라 java.net.SocketException: Connection reset 가 발생하는 듯?)
         // 근데 이러면 catch로 바로 넘어가고, 자원 정리가 되지 않고 나가버리게 된다.
         // 서버에서 자원 정리 로그도 뜨지 않는다.
 
